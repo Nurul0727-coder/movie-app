@@ -2,11 +2,11 @@
 "use client";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { options } from "../components/section";
-import { PaginationControls } from "../components/paginationControls";
-import { MovieCard } from "../components/moviecard";
-import { Movie } from "../components/type";
-import { PageInfo } from "../components/paginationControls";
+import { PaginationControls } from "../_components/paginationControls";
+import { MovieCard } from "../_components/moviecard";
+import { PageInfo } from "../_components/paginationControls";
+import { Movie } from "../type";
+import { options } from "../api";
 
 export default function Page() {
   const params = useParams();
@@ -19,11 +19,11 @@ export default function Page() {
     currentPage: page,
   });
 
-  const category = params.category || "popular"; // Default category: popular
+  const category = params.category || "popular"; 
 
   useEffect(() => {
     if (!category) {
-      router.push("/404"); // Хэрэв category байхгүй бол 404 хуудсанд шилжих
+      router.push("/404"); 
     }
 
     const fetchMovies = async () => {
@@ -37,7 +37,7 @@ export default function Page() {
     };
 
     fetchMovies();
-  }, [page, category, router]); // `category` болон `page`-ийг хянаж байна
+  }, [page, category, router]); 
 
   return (
     <>
