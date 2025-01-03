@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FiMoon } from "react-icons/fi";
 import { FiSun } from "react-icons/fi";
+import { FilterGenre } from "./FilterGenre";
 
 export const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
@@ -39,6 +40,8 @@ const onClickGenre= () => {};
         
           <img src="logo.png" alt="logo" />
         </Link>
+
+        <FilterGenre />
         
        
 

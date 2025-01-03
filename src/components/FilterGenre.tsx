@@ -8,6 +8,7 @@ import{
 }from '@/components/ui/popover';
 import { options } from '@/constands/api';
 import{GenreType} from '@/constands/type';   
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export const FilterGenre =() => {    
@@ -31,7 +32,9 @@ export const FilterGenre =() => {
             </PopoverTrigger>
             <PopoverContent>
                 {genres.map((genre: GenreType) => (
+                    <Link href={`discover?with_genres=${genre.id}`} key={`genre-${genre.id}-link`}>
                     <Badge key={`genre-${genre.id}`}>{genre?.name} </Badge>
+                    </Link>
                 ))}
             </PopoverContent>
         </Popover>
