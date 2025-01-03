@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { PaginationControls } from "../_components/paginationControls";
 import { MovieCard } from "../_components/moviecard";
 import { PageInfo } from "../_components/paginationControls";
-import { Movie } from "../type";
-import { options } from "../api";
+import { Movie } from "../../constands/type";
+import { options } from "../../constands/api";
 
 export default function Page() {
   const params = useParams();

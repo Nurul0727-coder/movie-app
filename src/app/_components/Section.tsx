@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 import { IoMdArrowForward } from "react-icons/io"; 
 import { MovieCard } from "./moviecard"; 
 import { PaginationControls } from "./paginationControls"; 
-import { Movie } from "../type";
-import { options } from "../api";
+import { Movie } from "../../constands/type";
+import { options } from "../../constands/api";
 import Link from "next/link";
+import { HoverCard } from "@/components/ui/hover-card";
 
 interface Props {
   title: string;
@@ -49,9 +50,9 @@ export const Section = ({ title, endpoint }: Props) => {
         
       <Link href={`${endpoint}`}>
       <div className="flex items-center gap-2 p-3">
-        <button className="text-[14px]">
-            See more
-          </button>
+        <HoverCard className="text-[14px]">
+        See more
+        </HoverCard>
           <IoMdArrowForward className="w-[16px] h-[16px]" />
         </div>
       </Link>

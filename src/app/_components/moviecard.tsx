@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Movie } from "../type";
+import { Movie } from "../../constands/type";
 import { TiStarFullOutline } from "react-icons/ti";
 
 

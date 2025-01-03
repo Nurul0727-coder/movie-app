@@ -9,3 +9,7 @@ export type PageInfo ={
     currentPage: number;
     totalPages: number;
 }
+export type GenreType = {
+    id:number
+    name:string
+}

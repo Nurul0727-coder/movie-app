@@ -6,17 +6,19 @@ import{
     PopoverContent,
     PopoverTrigger,
 }from '@/components/ui/popover';
-import { options } from '../api';
-import{GenreType} from '@/types';   
+import { options } from '@/constands/api';
+import{GenreType} from '@/constands/type';   
 import { useState, useEffect } from 'react';
 
 export const FilterGenre =() => {    
     const [genres, setGenres] = useState([]);
+
     useEffect(() => {const fetchGenres = async () => {
         const response = await fetch(
-            'https://api.themoviedb.org/3/genre/movie/list?language=en'
+            'https://api.themoviedb.org/3/genre/movie/list?language=en',
            options
         );
+
         const data = await response.json();
         setGenres(data.genres);
     };
@@ -29,9 +31,10 @@ export const FilterGenre =() => {
             </PopoverTrigger>
             <PopoverContent>
                 {genres.map((genre: GenreType) => (
-                    <Badge key={'genre-${genre.id}'}>{genre.name} </Badge>
+                    <Badge key={`genre-${genre.id}`}>{genre?.name} </Badge>
                 ))}
             </PopoverContent>
         </Popover>
     );
+   
 };
