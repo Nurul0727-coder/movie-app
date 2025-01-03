@@ -70,3 +70,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Dark Mode өнгийн тохиргоо */
+  .dark {
+    --bg-color: #1a202c;
+    --text-color: #f7fafc;
+  }
+
+  /* Light Mode өнгийн тохиргоо */
+  .light {
+    --bg-color: #fff;
+    --text-color: #000;
+  }
+}
