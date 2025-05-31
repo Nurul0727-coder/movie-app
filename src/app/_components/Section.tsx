@@ -1,10 +1,9 @@
-
-"use client"; 
+"use client";
 
 import { useState, useEffect } from "react";
-import { IoMdArrowForward } from "react-icons/io"; 
-import { MovieCard } from "./moviecard"; 
-import { PaginationControls } from "./paginationControls"; 
+import { IoMdArrowForward } from "react-icons/io";
+import { MovieCard } from "./moviecard";
+import { PaginationControls } from "./paginationControls";
 import { Movie } from "../../constands/type";
 import { options } from "../../constands/api";
 import Link from "next/link";
@@ -27,7 +26,7 @@ export const Section = ({ title, endpoint }: Props) => {
     const fetchMovies = async () => {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${endpoint}?language=en-US&page=${pageInfo.currentPage}`,
-       options
+        options
       );
       const data = await response.json();
       setMovies(data.results || []);
@@ -45,17 +44,15 @@ export const Section = ({ title, endpoint }: Props) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex text-[24px] justify-between w-[335px] h-[36px] my-3">
-        <p className="font-semibold">{title}</p>
-        
-      <Link href={`${endpoint}`}>
-      <div className="flex items-center gap-2 p-3">
-        <HoverCard className="text-[14px]">
-        See more
-        </HoverCard>
-          <IoMdArrowForward className="w-[16px] h-[16px]" />
-        </div>
-      </Link>
+      <div className="flex text-[20px] justify-between w-full h-[36px] my-3 ">
+        <p className="font-semibold ml-10">{title}</p>
+
+        <Link href={`${endpoint}`}>
+          <div className="flex items-center gap-2 p-3 mt-[-12px] mr-10 hover:underline">
+            <HoverCard>See more</HoverCard>
+            <IoMdArrowForward className="w-[16px] h-[16px]" />
+          </div>
+        </Link>
       </div>
 
       <div className="flex flex-wrap justify-center gap-5 p-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:px-10">
@@ -67,4 +64,3 @@ export const Section = ({ title, endpoint }: Props) => {
     </div>
   );
 };
-

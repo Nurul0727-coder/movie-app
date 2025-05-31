@@ -1,4 +1,3 @@
-
 "use client";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -19,11 +18,11 @@ export default function Page() {
     currentPage: page,
   });
 
-  const category = params.category || "popular"; 
+  const category = params.category || "popular";
 
   useEffect(() => {
     if (!category) {
-      router.push("/404"); 
+      router.push("/404");
     }
 
     const fetchMovies = async () => {
@@ -37,11 +36,11 @@ export default function Page() {
     };
 
     fetchMovies();
-  }, [page, category, router]); 
+  }, [page, category, router]);
 
   return (
     <>
-      <h1 className="font-bold">{category}</h1>
+      <h1 className="font-bold ml-10 text-2xl">{category}</h1>
       <div className="p-4 grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:px-10">
         {movies.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />
