@@ -31,7 +31,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`py-4 shadow-md ${
+      className={`py-4  ${
         isDarkMode ? "bg-black text-white" : "bg-gradient-to-r"
       }`}
     >

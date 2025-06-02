@@ -43,7 +43,7 @@ export const Section = ({ title, endpoint }: Props) => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-7">
       <div className="flex text-[20px] justify-between w-full h-[36px] my-3 ">
         <p className="font-semibold ml-10">{title}</p>
 
