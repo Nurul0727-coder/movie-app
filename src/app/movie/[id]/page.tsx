@@ -4,11 +4,11 @@ import Link from "next/link";
 import { Footer } from "@/components/Footer";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function MovieDetail({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=f39690f9830ce804b7894ac1def4f7e9&language=en-US&append_to_response=credits`

@@ -2,11 +2,11 @@ import { Footer } from "@/components/Footer";
 import Link from "next/link";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function SimilarMoviesPage({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${id}/similar?api_key=f39690f9830ce804b7894ac1def4f7e9&language=en-US&page=1`
